@@ -23,9 +23,14 @@ jobs:
           echo "[INFO] To get describe, fech all depth and tags"
           git fetch --prune --unshallow
           git pull --tags
-          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` || echo "v0.0.1")
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` || echo "v0.0.0")
           COMMIT_CNT=$(git rev-list --count $LATEST_TAG..HEAD)
           VERSION=$(echo "$LATEST_TAG" | sed 's/^v//')
+          if [ "$LATEST_TAG" -eq "v0.0.0" ]; then
+            git tag v0.0.0
+            git push --tags
+            echo "[INFO] create initial tag v0.0.0"
+          fi
           echo "===================="
           echo "[INFO] latest: $LATEST_TAG"
           echo "[INFO] commit cnt: $COMMIT_CNT"
