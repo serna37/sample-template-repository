@@ -1,15 +1,15 @@
 > [!Caution]
 > This `README.md` is created for sample repository, should modify for new one.
-> Please substitute :%s/Repository/collect_name/g
+> Please substitute :%s/sample-template-repository/collect_name/g
 
-[![tag](https://img.shields.io/badge/tag-v0.0.0-green)](https://github.com/serna37/template/Repository/tag/v0.0.0)
+[![tag](https://img.shields.io/badge/tag-v0.0.0-green)](https://github.com/serna37/template/sample-template-repository/tag/v0.0.0)
 
-[![build](https://github.com/serna37/Repository/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/serna37/Repository/actions/workflows/build.yml)
-[![deploy](https://github.com/serna37/Repository/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/serna37/Repository/actions/workflows/deploy.yml)
-[![cron](https://github.com/serna37/Repository/actions/workflows/cron.yml/badge.svg?branch=release)](https://github.com/serna37/Repository/actions/workflows/cron.yml)
-[![tag_release](https://github.com/serna37/Repository/actions/workflows/tag_release.yml/badge.svg?branch=master)](https://github.com/serna37/Repository/actions/workflows/tag_release.yml)
+[![build](https://github.com/serna37/sample-template-repository/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/serna37/sample-template-repository/actions/workflows/build.yml)
+[![deploy](https://github.com/serna37/sample-template-repository/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/serna37/sample-template-repository/actions/workflows/deploy.yml)
+[![cron](https://github.com/serna37/sample-template-repository/actions/workflows/cron.yml/badge.svg?branch=release)](https://github.com/serna37/sample-template-repository/actions/workflows/cron.yml)
+[![tag_release](https://github.com/serna37/sample-template-repository/actions/workflows/tag_release.yml/badge.svg?branch=master)](https://github.com/serna37/sample-template-repository/actions/workflows/tag_release.yml)
 
-# Repository
+# sample-template-repository
 <!-- Description -->
 This repository is `some description`.
 
@@ -90,15 +90,15 @@ This repository is `some description`.
 ```
 .
 ├── core/
-│   ├── forge.js       : 🛠️manage obsidian logic
-│   ├── obsidian.js    : 💎store info
-│   └── vital.js       : 📲important logic
+│   ├── some
+│   ├── file
+│   └── ishere
 ├── components/
-│   └── *.js           : 📦make component files
-├── remnant/
-│   ├── playground.js  : 📑render logic
-│   └── prototype.js   : 📜on load logic
-└── index.html         : 🔖entry point
+│   └── *.js   to describe some
+├── some/
+│   ├── somefile
+│   └── somefile.js
+└── index.html
 ```
 
 ## Sequence
@@ -140,12 +140,12 @@ erDiagram
 
 # Usage
 ## 基本運用
-- ソースとなるサイトをChromeで開く
-- ブックマークレットを実行する
+- どうたらする
+- どうたらする
 - どうたらする
 
 ## メンテ作業
-- `test.py`へ関数追加
+- `test.js`へ関数追加
 - ブランチ`release`へPR、マージ
 
 ---
@@ -257,20 +257,19 @@ sh deploy.sh && lazydocker
 
 - コマンド内容
 ```shell
-cp ../DB/DB.db ./DB \
-  && docker build -t IMAGENAME:latest . \
+docker build -t IMAGENAME:latest . \
   && docker run \
     --name NAME \
     -d \
     -p 8080:8080 \
-    -v "$(pwd)/../DB:/asset/app/DB" \
+    -v "$(pwd)/../MOUNT:/asset/DB" \
     NAME:latest
 ```
 
 ## Remote
 - リリースと事前準備
   - `release`ブランチへのPRマージで、`Github Actions`からデプロイ。
-  - https://github.com/serna37/Repository/actions
+  - https://github.com/serna37/sample-template-repository/actions
 
 > [!Note]
 > - `GitHub Actions`でSSH接続する場合`シークレット`が必要。([ref](https://qiita.com/0622okakyo/items/5295b7b13daf3c35b3e1))
@@ -297,7 +296,7 @@ gh secret set MAIL_TO --body 'some value'
 ### サーバ側でクローン後、認証不要に
 `$GITHUB_TOKEN`はGitHubログインのトークン。
 ```shell
-git remote set-url origin https://$GITHUB_TOKEN@github.com/serna37/Mk-7.git
+git remote set-url origin https://$GITHUB_TOKEN@github.com/{ユーザ}/{レポジトリ名}.git
 ```
 
 ### ポートのプロセスを確認
