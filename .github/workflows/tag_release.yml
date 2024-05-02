@@ -24,13 +24,11 @@ jobs:
           git fetch --prune --unshallow
           git pull --tags
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` || echo "v0.0.0")
-          COMMIT_CNT=$(git rev-list --count $LATEST_TAG..HEAD)
-          VERSION=$(echo "$LATEST_TAG" | sed 's/^v//')
-          if [ "$LATEST_TAG" -eq "v0.0.0" ]; then
-            git tag v0.0.0
-            git push --tags
-            echo "[INFO] create initial tag v0.0.0"
+          COMMIT_CNT=0
+          if [ "$LATEST_TAG" != "v0.0.0" ]; then
+            COMMIT_CNT=$(git rev-list --count $LATEST_TAG..HEAD)
           fi
+          VERSION=$(echo "$LATEST_TAG" | sed 's/^v//')
           echo "===================="
           echo "[INFO] latest: $LATEST_TAG"
           echo "[INFO] commit cnt: $COMMIT_CNT"
@@ -53,7 +51,7 @@ jobs:
           echo "[INFO] new tag: $NEW_TAG"
           echo "===================="
           echo "[INFO] update README.md tag badge..."
-          sed -i "s/v0\.0\.0/v${new_major}.${new_minor}.${new_patch}/g" README.md
+          #sed -i "s/v0\.0\.0/v${new_major}.${new_minor}.${new_patch}/g" README.md
           sed -i "s/v${major}.${minor}.${patch}/v${new_major}.${new_minor}.${new_patch}/g" README.md
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
