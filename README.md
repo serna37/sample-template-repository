@@ -13,6 +13,11 @@
 <!-- Description -->
 This repository is `some description`.
 
+<!-- icon generator -->
+<a href="https://serna37.github.io/icon-badge/">
+  <img src="http://img.shields.io/badge/icon_badge-generator-4d9aff.svg?logo=icon&logoColor=&labelColor=696969&style=flat">
+</a>
+
 - App Profile
 <!-- Badges -->
 <table>
