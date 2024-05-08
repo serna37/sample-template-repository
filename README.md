@@ -2,7 +2,7 @@
 > This `README.md` is created for sample repository, should modify for new one.
 > Please substitute :%s/sample-template-repository/collect_name/g
 
-[![tag](https://img.shields.io/badge/tag-v0.0.2-green)](https://github.com/serna37/sample-template-repository/releases/tag/v0.0.2)
+[![tag](https://img.shields.io/badge/tag-v0.0.3-green)](https://github.com/serna37/sample-template-repository/releases/tag/v0.0.3)
 
 [![build](https://github.com/serna37/sample-template-repository/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/serna37/sample-template-repository/actions/workflows/build.yml)
 [![deploy](https://github.com/serna37/sample-template-repository/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/serna37/sample-template-repository/actions/workflows/deploy.yml)
